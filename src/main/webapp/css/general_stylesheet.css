@@ -1,0 +1,410 @@
+
+body{
+    background-color: #e7e7e7;
+}
+h1{
+    width: 455px;
+    height: 50px;
+    float: left;
+    font-family: sans-serif;
+}
+h1 a{
+    text-decoration: none;
+    color: #e7e7e7
+}
+
+header .button{
+    display: inline-block;
+    padding: 10px 40px;
+    margin-left: 10px;
+    margin-top: 20px;
+    background-color: #737478;
+
+    border-radius: 3px;
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.25);
+    font-size: 20px;
+    font-family: sans-serif;
+    text-decoration: none;
+    float: none;
+    color: #e7e7e7
+}
+header{
+    display: block;
+    padding-left: 20px;
+    height: 80px;
+    background-color: #4e4f54;
+}
+header p{
+    padding-left: 20px;
+    font-size: 16px;
+}
+#head{
+    background: white;
+    padding: 30px;
+    margin: 5px 40px;
+}
+
+.inputCont p{
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #212121;
+    display: block;
+    margin-left: 65px
+}
+.inputCont input{
+    width: 300px;
+    height: 40px;
+    background: #e3e4e5;
+    border: 1px solid #fffcfc;
+    border-radius: 3px;
+    margin-top: 15px;
+    box-shadow: 0 2px 3px 0 rgb(0 0 0 / 10%) inset;
+    font-size: 16px;
+    padding: 1px 2px 1px 15px;
+    color: #757575;
+    box-sizing: border-box;
+}
+form{
+    display: block;
+    width: 400px;
+    margin-left: 40%;
+}
+input[type = "submit"]{
+    display: inline-block;
+    padding: 5px 44px;
+    margin-left: 83px;
+    margin-top: 20px;
+    background-color: #737478;
+
+    border-radius: 3px;
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.25);
+    font-size: 16px;
+    font-family: sans-serif;
+    text-decoration: none;
+    float: none;
+    color: #e7e7e7
+}
+.img{
+    display: block;
+    float: left;
+    width: 170px;
+    background: url("../image/logo.png") no-repeat;
+    background-size: 160px;
+    height: 65px;
+    margin-top: -13px;
+}
+ul li {
+    list-style: none;
+    float: left;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 40px;
+}
+.menu ul {
+    padding-right: 100px;
+    float: left;
+    margin-top: 35px;
+}
+.menu ul li a{
+    text-decoration: none;
+    color: #e7e7e7;
+}
+div.authAs{
+    display: block;
+    width: auto;
+    float: left;
+    margin-top: 30px;
+    color: #e7e7e7;
+    font-family: sans-serif
+}
+p.errorMessage{
+    color: red;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+}
+header form #logout{
+    display: block;
+    padding: 5px 30px;
+    margin-left: 720px;
+    margin-top: -60px;
+    float: left;
+    background-color: #4e4f54;
+    box-shadow: none;
+    border-width: 2px
+}
+#user{
+    display: block;
+    width: 240px;
+    float: left;
+    margin-left: 10px;
+    font-family: sans-serif;
+    font-style: italic;
+    color: #e7e7e7;
+}
+#account{
+    display: inline-block;
+    font-family: sans-serif;
+    font-style: italic;
+    color: #e7e7e7;
+    height: 20px;
+    padding: 10px 0 5px 20px;
+    width: 120px;
+    float: none;
+    margin-top: 35px;
+    margin-left: -200px
+
+}
+aside{
+    display: block;
+    width: 280px;
+    height: 600px;
+    float:left;
+    border-right: 1px solid white;
+
+}
+aside a{
+    display: block;
+    text-decoration: none
+}
+aside a input[type="submit"] {
+    background: #e7e7e7;
+    color: #212121;
+    border: 1px solid white;
+    width: 245px;
+    height: 50px;
+    font-size: 18px;
+    margin-left: 18px;
+}
+aside a input[type="submit"]:hover{
+    background: #4e4f54;
+    color: #e7e7e7;
+}
+aside a form{
+    margin-left: 0
+}
+main{
+    display: inline-block;
+    width: 70%;
+    margin-left: 50px
+}
+main div{
+    font-family: sans-serif;
+    color: #212121;
+    font-weight: bold;
+}
+span{
+    font-weight: normal;
+    font-style: normal;
+}
+main div form input[type="text"]{
+    width: 300px;
+    height: 40px;
+    background: #e3e4e5;
+    border: 1px solid #fffcfc;
+    border-radius: 3px;
+    margin-top: 15px;
+    box-shadow: 0 2px 3px 0 rgb(0 0 0 / 10%) inset;
+    font-size: 16px;
+    padding: 1px 2px 1px 15px;
+    color: #757575;
+    box-sizing: border-box;
+}
+main div form textarea{
+    text-align: left;
+    font-family: sans-serif;
+    font-size: 20px;
+    background: #e3e4e5;
+    margin-left: -100px;
+}
+main div table{
+    width: 1000px;
+    border-collapse: collapse;
+}
+main div table td {
+    border-top: 1.5px solid #212121;
+    border-bottom: 1.5px solid #212121;
+    color: #212121;
+    background:#e7e7e7;
+    font-style: normal;
+    height: 40px;
+    text-align: center;
+    font-weight: normal;
+    padding: 5px;
+}
+div label select{
+    width: 300px;
+    height: 40px;
+    background: #e3e4e5;
+    border: 1px solid #fffcfc;
+    border-radius: 3px;
+    margin-top: 15px;
+    box-shadow: 0 2px 3px 0 rgb(0 0 0 / 10%) inset;
+    font-size: 16px;
+    padding: 1px 2px 1px 15px;
+    color: #757575;
+    box-sizing: border-box;
+}
+table tbody tr td input[type="submit"]{
+    background: #e7e7e7;
+    color: #212121;
+    margin: 0px;
+}
+table tbody tr td input[type="submit"]:hover{
+    background: #4e4f54;
+    color: #e7e7e7;
+}
+main div table thead th{
+    background: #7c7e7b4f;
+    font-weight: bold;
+    border-top: 1.5px solid #212121;
+    border-bottom: 1.5px solid #212121;
+    color: #212121;
+    font-style: normal;
+    height: 40px;
+    text-align: center;
+    padding: 5px;
+}
+main div table select{
+    background: #e3e4e5;
+    border: 1px solid #fffcfc;
+    border-radius: 3px;
+    box-shadow: 0 2px 3px 0 rgb(0 0 0 / 10%) inset;
+    font-size: 16px;
+    padding: 1px 2px 1px 15px;
+    color: #212121;
+    box-sizing: border-box;
+}
+main div input[type="number"]{
+    width: 300px;
+    height: 40px;
+    background: #e3e4e5;
+    border: 1px solid #fffcfc;
+    border-radius: 3px;
+    margin-top: 15px;
+    box-shadow: 0 2px 3px 0 rgb(0 0 0 / 10%) inset;
+    font-size: 16px;
+    padding: 1px 2px 1px 15px;
+    color: #757575;
+    box-sizing: border-box;
+}
+table td>div { position: relative;
+    }
+table td>div div {
+    margin-top: -10px;
+    background: #e3e4e5;
+    display: block;
+    position: absolute;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 155px;
+    font-weight: normal;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+table td>div div:hover {
+    margin-top: -10px;
+    border: 1px solid #fffcfc;
+    white-space: normal;
+    width: 300px;
+    z-index: 1;
+}
+.rating-area {
+    overflow: hidden;
+    width: 210px;
+    margin: 0 auto;
+}
+.rating-area:not(:checked) > input {
+    display: none;
+}
+.rating-area:not(:checked) > label {
+    float: right;
+    width: 42px;
+    padding: 0;
+    cursor: pointer;
+    font-size: 30px;
+    line-height: 30px;
+    color: lightgrey;
+    text-shadow: 1px 1px #bbb;
+}
+.rating-area:not(:checked) > label:before {
+    content: '★';
+}
+.rating-area > input:checked ~ label {
+    color: gold;
+    text-shadow: 1px 1px #c60;
+}
+.rating-area:not(:checked) > label:hover,
+.rating-area:not(:checked) > label:hover ~ label {
+    color: gold;
+}
+.rating-area > input:checked + label:hover,
+.rating-area > input:checked + label:hover ~ label,
+.rating-area > input:checked ~ label:hover,
+.rating-area > input:checked ~ label:hover ~ label,
+.rating-area > label:hover ~ input:checked ~ label {
+    color: gold;
+    text-shadow: 1px 1px goldenrod;
+}
+.rate-area > label:active {
+    position: relative;
+}
+.feedback{
+    margin-left: -40px;
+}
+.feedback table td{
+    border: 0px solid #e3e4e5;
+}
+.right {
+    text-align: left;
+    padding-left: 70px;
+}
+.left{
+    text-align: left;
+    padding-left: 70px;
+}
+table tbody tr td form input[type="submit"]{
+    background: #e7e7e7;
+    color: #212121;
+    margin-left: -70%;
+    margin-top: -1%;
+}
+form.setlocale{
+    display: block;
+    width: 30px;
+    float: right
+}
+#locale{
+    font-size: 15px;
+    display: block;
+    width: 50px;
+    margin-left: -50px ;
+}
+div.sort{
+    display: block;
+    width: 1000px;
+    margin-bottom: 10px
+}
+div.sort a input{
+    display: block;
+    width: 195px;
+    padding: 5px 10px;
+    margin: 2px;
+    background: #e3e4e5;
+    border: 1px solid #212121;
+    border-radius: 3px;
+    color: #212121;
+}
+div.sort a input:hover{
+    background: #4e4f54;
+    color: #e7e7e7;
+}
+div.sort a{
+    text-decoration: none;
+    float: left;
+}

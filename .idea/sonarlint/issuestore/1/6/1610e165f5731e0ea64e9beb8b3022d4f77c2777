@@ -1,0 +1,10 @@
+
+L
+java:S2696"6Make the enclosing method "static" or remove this set.(æð°¿
+U
+java:S1854=":Remove this useless assignment to local variable "locale".(ñ±æùÿÿÿÿ
+F
+java:S1481="+Remove this unused "locale" local variable.(ñ±æùÿÿÿÿ
+S	java:S106>"9Replace this use of System.out or System.err by a logger.(½æ±Éüÿÿÿÿ
+S	java:S106?"9Replace this use of System.out or System.err by a logger.(½æ±Éüÿÿÿÿ
+M	java:S106F"9Replace this use of System.out or System.err by a logger.(÷ù¨5

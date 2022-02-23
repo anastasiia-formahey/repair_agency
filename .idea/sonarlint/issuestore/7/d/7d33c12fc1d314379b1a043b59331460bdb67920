@@ -1,0 +1,7 @@
+
+g	java:S112T"FDefine and throw a dedicated exception instead of using a generic one.(¼ÿ¾¹ÿÿÿÿÿ8íàÂíñ/
+\
+java:S1161":Add the "@Override" annotation above this method signature(àÏğÏúÿÿÿÿ8„áÂíñ/
+\
+java:S1161":Add the "@Override" annotation above this method signature(ğŸÖ€øÿÿÿÿ8‡áÂíñ/
+Z	java:S106["9Replace this use of System.out or System.err by a logger.(ùæ±œıÿÿÿÿ8ºáÂíñ/

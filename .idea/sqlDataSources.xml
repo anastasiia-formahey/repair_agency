@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="4eb9ea6e-5eec-4778-b039-314486b95fd3" name="repair_agency@localhost Mapping">
+      <data-sources db="3f033c61-f782-4279-b361-20d4e806355e" ddl="7be106b7-2749-4ff6-9f7f-5f4a7f471631" />
+      <scope>
+        <node kind="schema" qname="repair_agency" />
+      </scope>
+    </mapping>
+  </component>
+  <component name="SqlDataSourceStorage">
+    <option name="dataSources">
+      <list>
+        <State>
+          <option name="id" value="7be106b7-2749-4ff6-9f7f-5f4a7f471631" />
+          <option name="name" value="MySQL - repair_agency@localhost (DDL)" />
+          <option name="languageId" value="MySQL" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/sql" />
+            </array>
+          </option>
+        </State>
+      </list>
+    </option>
+  </component>
+</project>
