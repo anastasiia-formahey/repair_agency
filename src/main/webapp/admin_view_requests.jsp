@@ -70,7 +70,7 @@
                 <form action="controller" method="post">
                     <tr>
                         <td>${req.getId()}</td>
-                        <td><div><div>${req.getDescription()}</div></div></td>
+                        <td style=" width: 120px;"><div><div>${req.getDescription()}</div></div></td>
                         <td>${req.getDateTime()}</td>
                         <td>${req.getClient()}</td>
                         <td>${req.getPrice()}</td>

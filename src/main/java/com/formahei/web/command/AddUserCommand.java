@@ -1,11 +1,11 @@
 package com.formahei.web.command;
 
 import com.formahei.dao.UserDAO;
-import com.formahei.entity.Role;
 import com.formahei.entity.User;
 import com.formahei.service.UserService;
 import com.formahei.utils.Constants;
 import com.formahei.utils.Path;
+import com.formahei.service.UserValidator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,14 +36,22 @@ public class AddUserCommand implements Command {
             user.setAccount(0);
             user.setStatus("unblocked");
             user.setRole(role);
-            if(userService.getUserByLogin(login) == null){
-                userService.addUser(user);
-                path = Path.PAGE_ADMIN_HOME;
+            String valid = new UserValidator().validate(user);
+            if(valid != null){
+                if(userService.getUserByLogin(login) == null){
+                    userService.addUser(user);
+                    path = Path.PAGE_ADMIN_HOME;
+                }else {
+                    errorMessage = "User has already exists";
+                    req.setAttribute(Constants.ERROR_MESSAGE, errorMessage);
+                    path = Path.PAGE_ADD_USER_BY_ADMIN;
+                }
             }else {
                 errorMessage = "User has already exists";
                 req.setAttribute(Constants.ERROR_MESSAGE, errorMessage);
                 path = Path.PAGE_ADD_USER_BY_ADMIN;
             }
+
         }
         return path;
     }

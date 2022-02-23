@@ -71,7 +71,7 @@
                         <input type="hidden" name="command" value="requestProcessingByMaster"/>
                         <input  type="hidden" name="idRequest" value="${req.getId()}"/>
                         <td>${req.getId()}</td>
-                        <td><div><div>${req.getDescription()}</div></div></td>
+                        <td style=" width: 120px;"><div><div>${req.getDescription()}</div></div></td>
                         <td>${req.getDateTime()}</td>
                         <td>${req.getClient()}</td>
                         <td>${req.getPrice()} UAH </td>
@@ -104,7 +104,7 @@
             <ul class="pagination">
                 <c:if test="${currentPage != 1}">
                     <li class="page-item"><a class="page-link"
-                                             href="controller?command=viewRequests&currentPage=${currentPage-1}&recordsPerPage=${recordsPerPage}">Previous</a>
+                                             href="controller?command=viewRequests&currentPage=${currentPage-1}&recordsPerPage=${recordsPerPage}&orderBy=id">Previous</a>
                     </li>
                 </c:if>
 
@@ -117,7 +117,7 @@
                         </c:when>
                         <c:otherwise>
                             <li class="page-item"><a class="page-link"
-                                                     href="controller?command=viewRequests&currentPage=${i}&recordsPerPage=${recordsPerPage}">${i}</a>
+                                                     href="controller?command=viewRequests&currentPage=${i}&recordsPerPage=${recordsPerPage}&orderBy=id">${i}</a>
                             </li>
                         </c:otherwise>
                     </c:choose>
@@ -125,7 +125,7 @@
 
                 <c:if test="${currentPage lt noOfPages}">
                     <li class="page-item"><a class="page-link"
-                                             href="controller?command=viewRequests&currentPage=${currentPage+1}&recordsPerPage=${recordsPerPage}">Next</a>
+                                             href="controller?command=viewRequests&currentPage=${currentPage+1}&recordsPerPage=${recordsPerPage}&orderBy=id">Next</a>
                     </li>
                 </c:if>
             </ul>

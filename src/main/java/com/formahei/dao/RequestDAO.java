@@ -11,10 +11,7 @@ public class RequestDAO {
     private static final String SQL_INSERT_REQUEST = "INSERT INTO request VALUES (DEFAULT , ?, ?, ?, ?, ?)";
     private static final String SQL_UPDATE_REQUEST_BY_MANAGER = "UPDATE request SET price=?, status=? WHERE id=?";
     private static final String SQL_UPDATE_REQUEST_BY_MASTER = "UPDATE request SET state=? WHERE id=?";
-    private static final String SQL_FIND_REQUEST ="SELECT * FROM repair_agency.request " +
-            "left outer join  repair_agency.user_request " +
-            "on request.id = user_request.id_request where " +
-            "user_request.user_role='CLIENT'";
+    private static final String SQL_FIND_REQUEST ="SELECT * FROM repair_agency.request ";
     private static final String SQL_FIND_MASTER_BY_REQUEST_ID = "SELECT user_login FROM user_request WHERE id_request=? AND user_role='MASTER'";
     private static final String SQL_FIND_REQUEST_BY_ID = "SELECT * FROM request WHERE id=?";
 
@@ -125,13 +122,9 @@ public class RequestDAO {
         try{
             connection = DBManager.getInstance().getConnection();
             preparedStatement = connection.prepareStatement( SQL_FIND_REQUEST);
-
             System.out.println(preparedStatement);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
-                user = UserDAO.getInstance().findUserByLogin(resultSet.getString("user_login"));
-                if(user != null && user.getRole().equals("CLIENT")){
-                    String client_id =user.getLogin();
                     int id = resultSet.getInt("id");
                     RepairRequest request = new RepairRequest.RequestBuilder()
                             .withDescription(resultSet.getString("description"))
@@ -139,13 +132,11 @@ public class RequestDAO {
                             .withPrice(resultSet.getInt("price"))
                             .withStatus(resultSet.getString("status"))
                             .withState(resultSet.getString("state"))
-                            .withClient(client_id)
                             .withMaster(findMasterByRequestId(id))
                             .build();
                     request.setId(id);
                     requests.add(request);
                     System.out.println(request);
-                }
             }
             resultSet.close();
         } catch (SQLException e) {

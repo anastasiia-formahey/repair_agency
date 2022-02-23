@@ -76,7 +76,7 @@
                 <thead>
                 <tr>
                     <th>№</th>
-                    <th><fmt:message key="description"/></th>
+                    <th style="    padding-right: 65px;"><fmt:message key="description"/></th>
                     <th style="width: 148px;"><fmt:message key="dataTime"/></th>
                     <th><fmt:message key="client"/></th>
                     <th><fmt:message key="price"/></th>
@@ -93,7 +93,7 @@
                         <input type="hidden" name="command" value="requestProcessingByManager"/>
                         <input  type="hidden" name="idRequest" value="${req.getId()}"/>
                         <td>${req.getId()}</td>
-                        <td><div><div>${req.getDescription()}</div></div></td>
+                        <td style=" width: 120px;"><div><div>${req.getDescription()}</div></div></td>
                         <td>${req.getDateTime()}</td>
                         <td>${req.getClient()}</td>
                         <td>

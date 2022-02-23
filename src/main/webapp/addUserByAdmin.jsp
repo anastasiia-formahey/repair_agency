@@ -101,7 +101,7 @@
                 </select>
             </label>
         </div>
-        <input type="submit" value="<fmt:message key="addUser"/>"><br>
+        <input type="submit" value="<fmt:message key="addUser"/>" style="    margin-left: 30px;"><br>
     </form>
 </div>
 </main>

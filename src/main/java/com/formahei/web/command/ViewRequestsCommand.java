@@ -38,7 +38,7 @@ public class ViewRequestsCommand implements Command {
 
         req.setAttribute("responses", resp);
         setPagination(req, currentPage, rows);
-        List <RepairRequest> requests = requestService.findAllRequests(req.getParameter("orderBy"), currentPage,5);
+        List <RepairRequest> requests = requestService.findAllRequests(req.getParameter("orderBy"), currentPage-1,5);
         List <Feedback> feedbacks = feedbackService.findAllFeedbacks();
         List <RepairRequest> requestsDTO = new ArrayList<>();
         List <RepairRequest> requestsForClient = new ArrayList<>();

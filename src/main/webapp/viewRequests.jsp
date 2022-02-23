@@ -82,7 +82,7 @@
                             <input type="hidden" name="command" value="payForRequest"/>
                             <input  type="hidden" name="idRequest" value="${req.getId()}"/>
                         <td>${req.getId()}</td>
-                            <td><div><div>${req.getDescription()}</div></div></td>
+                            <td style=" width: 120px;"><div><div>${req.getDescription()}</div></div></td>
                         <td>${req.getDateTime()}</td>
                             <td>${req.getPrice()}
                                 <c:if test="${req.getStatus() eq 'Wait for payment'}">

@@ -32,6 +32,6 @@ public class RequestService {
     }
 
     public int getNumberOfResponsesRows() {
-        return requestDAO.findAllRequests().size();
+        return requestDAO.findAllRequests().size()+1;
     }
 }
