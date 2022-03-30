@@ -1,7 +1,3 @@
-
-body{
-    background-color: #e7e7e7;
-}
 h1{
     width: 455px;
     height: 50px;
@@ -10,7 +6,7 @@ h1{
 }
 h1 a{
     text-decoration: none;
-    color: #e7e7e7
+    color: white
 }
 
 header .button{
@@ -18,21 +14,20 @@ header .button{
     padding: 10px 40px;
     margin-left: 10px;
     margin-top: 20px;
-    background-color: #737478;
-
+    background-color: black;
     border-radius: 3px;
     box-shadow: 0 5px 5px 0 rgba(0,0,0,0.25);
     font-size: 20px;
     font-family: sans-serif;
     text-decoration: none;
     float: none;
-    color: #e7e7e7
+    color: white
 }
 header{
     display: block;
     padding-left: 20px;
-    height: 80px;
-    background-color: #4e4f54;
+    height: 90px;
+    background-color: black;
 }
 header p{
     padding-left: 20px;
@@ -48,21 +43,21 @@ header p{
     font-family: sans-serif;
     font-size: 20px;
     font-weight: bold;
-    color: #212121;
+    color: black;
     display: block;
-    margin-left: 65px
+    margin-left: 110px
 }
 .inputCont input{
     width: 300px;
     height: 40px;
-    background: #e3e4e5;
-    border: 1px solid #fffcfc;
+    background: white;
+    border: 1px solid #949494;
     border-radius: 3px;
     margin-top: 15px;
     box-shadow: 0 2px 3px 0 rgb(0 0 0 / 10%) inset;
     font-size: 16px;
     padding: 1px 2px 1px 15px;
-    color: #757575;
+    color: #000;
     box-sizing: border-box;
 }
 form{
@@ -75,15 +70,15 @@ input[type = "submit"]{
     padding: 5px 44px;
     margin-left: 83px;
     margin-top: 20px;
-    background-color: #737478;
+    background-color: #fff;
 
     border-radius: 3px;
-    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.25);
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
     font-size: 16px;
     font-family: sans-serif;
     text-decoration: none;
     float: none;
-    color: #e7e7e7
+    color: black;
 }
 .img{
     display: block;
@@ -109,14 +104,14 @@ ul li {
 }
 .menu ul li a{
     text-decoration: none;
-    color: #e7e7e7;
+    color: white;
 }
 div.authAs{
     display: block;
     width: auto;
     float: left;
     margin-top: 30px;
-    color: #e7e7e7;
+    color: white;
     font-family: sans-serif
 }
 p.errorMessage{
@@ -125,14 +120,21 @@ p.errorMessage{
     font-size: 14px;
     font-weight: normal;
 }
+main p.message{
+    font-family: sans-serif;
+    font-size: 22px;
+    font-weight: normal;
+}
+
 header form #logout{
     display: block;
     padding: 5px 30px;
     margin-left: 720px;
     margin-top: -60px;
     float: left;
-    background-color: #4e4f54;
+    background-color: black;
     box-shadow: none;
+    border-color: white;
     border-width: 2px
 }
 #user{
@@ -142,13 +144,13 @@ header form #logout{
     margin-left: 10px;
     font-family: sans-serif;
     font-style: italic;
-    color: #e7e7e7;
+    color: white;
 }
 #account{
     display: inline-block;
     font-family: sans-serif;
     font-style: italic;
-    color: #e7e7e7;
+    color: white;
     height: 20px;
     padding: 10px 0 5px 20px;
     width: 120px;
@@ -170,17 +172,18 @@ aside a{
     text-decoration: none
 }
 aside a input[type="submit"] {
-    background: #e7e7e7;
-    color: #212121;
+    color: black;
     border: 1px solid white;
     width: 245px;
     height: 50px;
     font-size: 18px;
     margin-left: 18px;
+    background-color: white;
+    border-color: gray;
 }
 aside a input[type="submit"]:hover{
-    background: #4e4f54;
-    color: #e7e7e7;
+    background: black;
+    color: white;
 }
 aside a form{
     margin-left: 0
@@ -192,7 +195,7 @@ main{
 }
 main div{
     font-family: sans-serif;
-    color: #212121;
+    color: black;
     font-weight: bold;
 }
 span{
@@ -202,14 +205,14 @@ span{
 main div form input[type="text"]{
     width: 300px;
     height: 40px;
-    background: #e3e4e5;
-    border: 1px solid #fffcfc;
+    /*! background: #e3e4e5; */
+    border: 1px solid #949494;
     border-radius: 3px;
     margin-top: 15px;
     box-shadow: 0 2px 3px 0 rgb(0 0 0 / 10%) inset;
     font-size: 16px;
     padding: 1px 2px 1px 15px;
-    color: #757575;
+    color: black;
     box-sizing: border-box;
 }
 main div form textarea{
@@ -226,8 +229,8 @@ main div table{
 main div table td {
     border-top: 1.5px solid #212121;
     border-bottom: 1.5px solid #212121;
-    color: #212121;
-    background:#e7e7e7;
+    color: black;
+    background:white;
     font-style: normal;
     height: 40px;
     text-align: center;
@@ -237,27 +240,27 @@ main div table td {
 div label select{
     width: 300px;
     height: 40px;
-    background: #e3e4e5;
-    border: 1px solid #fffcfc;
+    background: white;
+    border: 1px solid #949494;
     border-radius: 3px;
     margin-top: 15px;
     box-shadow: 0 2px 3px 0 rgb(0 0 0 / 10%) inset;
     font-size: 16px;
     padding: 1px 2px 1px 15px;
-    color: #757575;
+    color: #000;
     box-sizing: border-box;
 }
 table tbody tr td input[type="submit"]{
-    background: #e7e7e7;
-    color: #212121;
+    background: white;
+    color: black;
     margin: 0px;
 }
 table tbody tr td input[type="submit"]:hover{
-    background: #4e4f54;
-    color: #e7e7e7;
+    background: black;
+    color: white;
 }
 main div table thead th{
-    background: #7c7e7b4f;
+    background: #cbcbcb4f;
     font-weight: bold;
     border-top: 1.5px solid #212121;
     border-bottom: 1.5px solid #212121;
@@ -268,8 +271,8 @@ main div table thead th{
     padding: 5px;
 }
 main div table select{
-    background: #e3e4e5;
-    border: 1px solid #fffcfc;
+    background: white;
+    border: 1px solid #000;
     border-radius: 3px;
     box-shadow: 0 2px 3px 0 rgb(0 0 0 / 10%) inset;
     font-size: 16px;
@@ -277,24 +280,23 @@ main div table select{
     color: #212121;
     box-sizing: border-box;
 }
-main div input[type="number"]{
+main div input[type="number"] {
     width: 300px;
     height: 40px;
-    background: #e3e4e5;
-    border: 1px solid #fffcfc;
+    /*! background: #e3e4e5; */
+    border: 1px solid #949494;
     border-radius: 3px;
     margin-top: 15px;
     box-shadow: 0 2px 3px 0 rgb(0 0 0 / 10%) inset;
     font-size: 16px;
     padding: 1px 2px 1px 15px;
-    color: #757575;
+    color: #000;
     box-sizing: border-box;
 }
 table td>div { position: relative;
-    }
+}
 table td>div div {
     margin-top: -10px;
-    background: #e3e4e5;
     display: block;
     position: absolute;
     white-space: nowrap;
@@ -309,10 +311,10 @@ table td>div div {
 }
 table td>div div:hover {
     margin-top: -10px;
-    border: 1px solid #fffcfc;
     white-space: normal;
     width: 300px;
     z-index: 1;
+    text-align: left;
 }
 .rating-area {
     overflow: hidden;
@@ -377,34 +379,81 @@ table tbody tr td form input[type="submit"]{
 form.setlocale{
     display: block;
     width: 30px;
-    float: right
+    float: right;
+    color: black;
 }
 #locale{
     font-size: 15px;
     display: block;
     width: 50px;
     margin-left: -50px ;
+    background-color: black;
+    color: white;
 }
-div.sort{
+div.sort {
     display: block;
-    width: 1000px;
-    margin-bottom: 10px
+    width: 200px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    height: 20px;
 }
 div.sort a input{
     display: block;
     width: 195px;
     padding: 5px 10px;
     margin: 2px;
-    background: #e3e4e5;
+    background: white;
     border: 1px solid #212121;
     border-radius: 3px;
     color: #212121;
+    height: 30px;
+    font-size: 16px;
 }
 div.sort a input:hover{
-    background: #4e4f54;
-    color: #e7e7e7;
+    background: black;
+    color: white;
 }
 div.sort a{
     text-decoration: none;
-    float: left;
+    padding-bottom: 5px;
+}
+ul.pagination li.page-item a{
+    text-decoration: none;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: -2px -2px 5px 0px rgb(0 0 0 / 10%) inset;
+    font-size: 16px;
+    padding: 5px 10px 5px 10px;
+    color: #212121;
+}
+ul.pagination li.active a {
+    background: #000;
+    color: #fff;
+}
+ul.pagination li {
+    margin-top: 30px;
+    margin-right: -25px;
+}
+main div p span span.star{
+    color: gold;
+    text-shadow: 1px 1px goldenrod;
+    font-size: 24px;
+    padding: 0;
+}
+
+#head > form:nth-child(1) {
+    border: 1px solid #949494;
+    border-radius: 3px;
+    margin-top: 15px;
+    box-shadow: 8px 10px 4px 8px rgb(0 0 0 / 10%);
+    padding-left: 104px;
+    padding-bottom: 40px;
+    margin-left: 32%;
+}
+body > main:nth-child(4) > div:nth-child(1) > form:nth-child(1) {
+    margin-left: 320px;
+    margin-top: 20px;
+}
+input:out-of-range{
+    border-color: red;
 }

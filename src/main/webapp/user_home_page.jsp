@@ -56,5 +56,8 @@
         <input class="userMenu" name="topUpAccount" type="submit" value="<fmt:message key="topUpAccount"/>">
     </a>
 </aside>
+<main>
+    <p class = "message">${sessionScope.message}</p>
+</main>
 </body>
 </html>

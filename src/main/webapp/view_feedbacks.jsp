@@ -67,7 +67,7 @@
                 <form action="controller" method="post">
                     <tr>
                         <td>${feedback.getIdRequest()}</td>
-                        <td>★ ${feedback.getStars()}</td>
+                        <td><span class="star">★</span> ${feedback.getStars()}</td>
                         <td>${feedback.getDateTime()}</td>
                         <td><div><div>${feedback.getDescription()}</div></div></td>
                     </tr>

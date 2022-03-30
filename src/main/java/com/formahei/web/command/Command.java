@@ -16,5 +16,5 @@ public interface Command extends Serializable {
      * Execution method for command
      * @return Address to go after command executed
      * */
-    String execute(HttpServletRequest req, HttpServletResponse resp) throws IOException;
+    CommandResult execute(HttpServletRequest req, HttpServletResponse resp) throws IOException;
 }

@@ -2,6 +2,7 @@ package com.formahei.web;
 
 import com.formahei.web.command.Command;
 import com.formahei.web.command.CommandContainer;
+import com.formahei.web.command.CommandResult;
 import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
@@ -52,13 +53,15 @@ public class Controller extends HttpServlet{
         log.trace("Obtained command => " + command);
 
         // execute command and get forward address
-        String forward = command.execute(req, resp);
-        log.trace("Forward address => " + forward);
-        log.debug("Controller finished. Go to forward address " + forward);
+        CommandResult commandResult = command.execute(req, resp);
+        log.trace("Forward address => " + commandResult.getPage());
+        log.debug("Controller finished. Go to forward address " + commandResult.getPage());
 
         // if the forward address is not null go to the address
-        if (forward != null){
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher(forward);
+        if (commandResult.isRedirect()){
+            resp.sendRedirect(commandResult.getPage());
+        }else{
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher(commandResult.getPage());
             requestDispatcher.forward(req, resp);
         }
     }

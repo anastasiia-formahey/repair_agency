@@ -61,7 +61,7 @@
     <form action="controller" method="get" style="margin-left: 40px;   margin-top: 20px;">
     <input type="hidden" name="command" value="topUpAccount"/>
 
-    <input class="inputField"  name="topUpAccount" type="number" placeholder="<fmt:message key="enterAmount"/>">
+    <input class="inputField"  name="topUpAccount" type="number" required placeholder="<fmt:message key="enterAmount"/>">
       <p class = errorMessage>${requestScope.errorMessage}</p>
     <input class="inputField" type="submit" style=" margin-left: 10px;" value="<fmt:message key="topUpAccount"/>">
     </form>

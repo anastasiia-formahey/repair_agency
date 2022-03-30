@@ -30,7 +30,11 @@ public class UserService {
     }
 
     public boolean updateStatus(String login){
-        return userDAO.updateStatus(login, "blocked");
+        String status = "blocked";
+        if(getUserByLogin(login).getStatus().equals("blocked")){
+            status = "unblocked";
+        }
+        return userDAO.updateStatus(login, status);
     }
 
     public List<User> findUserByRole(String role) {

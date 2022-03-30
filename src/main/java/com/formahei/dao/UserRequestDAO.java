@@ -3,7 +3,10 @@ package com.formahei.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
+/**
+ * Data access object for User_Request entity.
+ * @author Anastasiia Formahei
+ */
 public class UserRequestDAO {
     private static final String SQL_INSERT_USER_REQUEST = "INSERT INTO user_request VALUES(?,?,?)";
 

@@ -1,5 +1,8 @@
 package com.formahei.entity;
-
+/**
+ * Feedback entity
+ * @author Anastasiia Formahei
+ * */
 public class Feedback extends Entity{
     int id;
     String description;

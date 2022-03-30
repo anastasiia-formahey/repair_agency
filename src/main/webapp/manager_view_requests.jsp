@@ -50,27 +50,35 @@
     <a href="manager_top_up_account.jsp">
         <input class="userMenu" name="topUpAccount" type="submit" value="<fmt:message key="topUpAccount"/>">
     </a>
-</aside>
-<main>
+    <br>
+    <hr>
+    <br>
     <div>
-        <br>
-    <div class="sort"><a href="controller?command=viewRequests&orderBy=price">
-        <input class="userMenu" name="viewRequests" type="submit" value="<fmt:message key="sortByPrice"/>">
-    </a>
+    <div class="sort">
+        <a style="    float: right;    width: 245px;">
+            <img src="image/icons8-filter-50.png" height="25px" style="float: left">
+            <input type="text" id="filterMaster" onkeyup="filterMaster()" placeholder="Search for master.." style=" height: 26px;
+">
+            <input type="text" id="filterStatus" onkeyup="filterStatus()" placeholder="Search for status.." style=" height: 26px; margin-left: 25px;
+">
+        </a>
+        <a href="controller?command=viewRequests&orderBy=price">
+            <input class="userMenu" name="viewRequests" type="submit" value="<fmt:message key="sortByPrice"/>">
+        </a>
         <a href="controller?command=viewRequests&orderBy=dateTime">
             <input class="userMenu" name="viewRequests" type="submit" value="<fmt:message key="sortByDate"/>">
         </a>
         <a href="controller?command=viewRequests&orderBy=status">
             <input class="userMenu" name="viewRequests" type="submit" value="<fmt:message key="sortByStatus"/>">
         </a>
-        <a style="    float: right;    width: 245px;">
-            <img src="image/icons8-filter-50.png" height="25px" style="float: left">
-        <input type="text" id="filterMaster" onkeyup="filterMaster()" placeholder="Search for master.." style=" height: 26px;
-">
-        <input type="text" id="filterStatus" onkeyup="filterStatus()" placeholder="Search for status.." style=" height: 26px; margin-left: 25px;
-">
-        </a>
+
     </div>
+    </div>
+</aside>
+<main>
+    <div>
+        <br>
+
 
             <table id="filterTable">
                 <thead>
@@ -88,7 +96,7 @@
                 </thead>
                 <tbody class="table-hover">
                 <c:forEach items="${sessionScope.listOfRequests}" var="req" varStatus="loop">
-                <form action="controller" method="post">
+                <form action="controller" method="get">
                     <tr>
                         <input type="hidden" name="command" value="requestProcessingByManager"/>
                         <input  type="hidden" name="idRequest" value="${req.getId()}"/>
@@ -97,17 +105,20 @@
                         <td>${req.getDateTime()}</td>
                         <td>${req.getClient()}</td>
                         <td>
+                            <c:if test="${req.getStatus() ne 'Canceled'}">
                             <c:if test="${req.getPrice() eq 0}">
-                            <input class="inputField" pattern="[0-9]{0,10}$"  name="setPrice" type="text" placeholder="<fmt:message key="enterAmount"/>">
+                            <input class="inputField" pattern="[0-9]{1,10}" required min = "1"
+                                   name="setPrice" type="number" placeholder="<fmt:message key="enterAmount"/>" style="width: 150px;">
                             </c:if>
                             <c:if test="${req.getPrice() > 0 }">
                                 ${req.getPrice()} UAH
+                                <input  type="hidden" name="setPrice" value="${req.getPrice()}"/>
+                            </c:if>
                             </c:if>
                         </td>
                         <td>
                             <c:if test="${req.getStatus() eq ''}">
                             <select name="status">
-                                <option></option>
                                 <option>Wait for payment</option>
                                 <option>Paid</option>
                                 <option>Canceled</option>
@@ -115,6 +126,7 @@
                             </c:if>
                             <c:if test="${req.getStatus() ne ''}">
                                 ${req.getStatus()}
+                                <input  type="hidden" name="status" value="${req.getStatus()}"/>
                             </c:if>
                         </td>
                         <td>${req.getState()}</td>
@@ -132,27 +144,37 @@
                                 </c:if>
                             </c:if>
                         </td>
+                        <c:if test="${req.getStatus() ne 'Canceled'}">
                         <c:if test="${req.getState() ne 'Finished'}">
+                            <c:if test="${req.getMaster() eq ''}">
                         <td>
                         <input name="requestProcessingByManager" type="submit" value="<fmt:message key="send"/>">
                         </td>
+                            </c:if>
+                            <c:if test="${req.getMaster() ne ''}">
+                                <td>
+                                    <input name="requestProcessingByManager" type="hidden" value="<fmt:message key="send"/>">
+                                </td>
+                            </c:if>
                         </c:if>
                         <c:if test="${req.getState() eq 'Finished'}">
                             <td>
                                 <input name="getReportOfRequest" type="submit" value="<fmt:message key="getTheReport"/>">
                             </td>
-                        </c:if>
+                        </c:if></c:if>
                     </tr>
                 </form>
                 </c:forEach>
                 </tbody>
             </table>
+        <p class="errorMessage">${sessionScope.errorMessage}</p>
+
 
         <nav aria-label="Navigation for responses">
             <ul class="pagination">
                 <c:if test="${currentPage != 1}">
                     <li class="page-item"><a class="page-link"
-                                             href="controller?command=viewRequests&currentPage=${currentPage-1}&recordsPerPage=${recordsPerPage}">Previous</a>
+                                             href="controller?command=viewRequests&currentPage=${currentPage-1}&recordsPerPage=${recordsPerPage}&orderBy=${orderBy}">Previous</a>
                     </li>
                 </c:if>
 
@@ -165,7 +187,7 @@
                         </c:when>
                         <c:otherwise>
                             <li class="page-item"><a class="page-link"
-                                                     href="controller?command=viewRequests&currentPage=${i}&recordsPerPage=${recordsPerPage}">${i}</a>
+                                                     href="controller?command=viewRequests&currentPage=${i}&recordsPerPage=${recordsPerPage}&orderBy=${orderBy}">${i}</a>
                             </li>
                         </c:otherwise>
                     </c:choose>
@@ -173,7 +195,7 @@
 
                 <c:if test="${currentPage lt noOfPages}">
                     <li class="page-item"><a class="page-link"
-                                             href="controller?command=viewRequests&currentPage=${currentPage+1}&recordsPerPage=${recordsPerPage}">Next</a>
+                                             href="controller?command=viewRequests&currentPage=${currentPage+1}&recordsPerPage=${recordsPerPage}&orderBy=${orderBy}">Next</a>
                     </li>
                 </c:if>
             </ul>

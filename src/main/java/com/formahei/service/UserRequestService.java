@@ -9,7 +9,6 @@ public class UserRequestService {
         this.requestDAO = requestDAO;
     }
 
-
     public void addUserRequest(int idRequest, String userLogin, String client) {
         requestDAO.addUserRequest(idRequest, userLogin, client);
     }

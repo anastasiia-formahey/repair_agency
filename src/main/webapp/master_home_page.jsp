@@ -55,7 +55,7 @@
         <p><fmt:message key="firstName"/> : <span>${sessionScope.firstName}</span></p>
         <p><fmt:message key="lastName"/> : <span>${sessionScope.lastName}</span></p>
         <p><fmt:message key="email"/> : <span>${sessionScope.email}</span></p>
-        <p><fmt:message key="rating"/> : <span>${sessionScope.rating}</span></p>
+        <p><fmt:message key="rating"/> : <span> <span class="star">★</span> ${sessionScope.rating}</span></p>
     </div>
 </main>
 </body>

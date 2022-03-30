@@ -22,8 +22,8 @@
         </ul>
     </div></td>
         <td>
-    <a href="index.jsp" class="button" style="margin-top: -20px;"> <fmt:message key="header.login"/> </a>
-    <a href="register.jsp" class="button" style="margin-top: -20px;"><fmt:message key="header.register"/></a>
+    <a href="index.jsp" class="button" style="margin-top: -20px; border: 1px white solid;"> <fmt:message key="header.login"/> </a>
+    <a href="register.jsp" class="button" style="margin-top: -20px; border: 1px white solid;"><fmt:message key="header.register"/></a>
         </td>
         <td>
     <div class="locale">
@@ -45,21 +45,20 @@
         <input type="hidden" name="command" value="login"/>
         <div class="inputCont">
             <p><fmt:message key="header.login"/></p>
-            <p class = errorMessage>${requestScope.errorMessage}</p>
+            <p class = errorMessage style="margin-left: 0px; padding-right: 100px;">${requestScope.errorMessage}</p>
         </div>
 
         <div class="inputCont">
-            <input name="login" class="inputField" type="text" placeholder="<fmt:message key="login"/>"/>
+            <input name="login" class="inputField" type="text" placeholder="<fmt:message key="login"/>" required/>
         </div>
         <br>
         <div class="inputCont" id="pass">
             <label>
-                <input name="password" class="inputField" type="password" placeholder="<fmt:message key="password"/>">
+                <input name="password" class="inputField" type="password" placeholder="<fmt:message key="password"/>" required/>
                 <br>
             </label>
         </div>
         <br>
-        <a href="controller?command=login"></a>
         <input type="submit" value="<fmt:message key="header.login"/>"><br>
     </form>
 </div>

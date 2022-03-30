@@ -31,7 +31,7 @@ public class RepairRequest extends Entity{
     public int getId() {
         return id;
     }
-
+    @Override
     public RepairRequest setId(int id) {
         this.id = id;
         return this;
@@ -73,9 +73,6 @@ public class RepairRequest extends Entity{
         return this;
     }
 
-    public RequestBuilder requestBuilder(){
-        return new RequestBuilder();
-    }
     @Override
     public String toString() {
         return "RepairRequest{" +
@@ -138,11 +135,6 @@ public class RepairRequest extends Entity{
 
         public RequestBuilder withMaster(String master) {
             this.master = master;
-            return this;
-        }
-
-        public RequestBuilder withFeedback(int feedback){
-            this.feedback = feedback;
             return this;
         }
 

@@ -58,7 +58,7 @@
 </aside>
 <main>
     <div>
-        <form action="controller" method="post" class="feedback">
+        <form action="controller" method="post" class="feedback" style="margin-left: 0px;">
             <div class="inputCont"> <p><fmt:message key="leaveFeedback"/></p> </div>
             <input type="hidden" name="command" value="createFeedback"/>
             <input  type="hidden" name="idRequest" value="${sessionScope.idRequest}"/>
@@ -89,7 +89,7 @@
                             <label for="star-3" title="3"></label>
                             <input type="radio" id="star-2" name="rating" value="2">
                             <label for="star-2" title="2"></label>
-                            <input type="radio" id="star-1" name="rating" value="1" >
+                            <input type="radio" id="star-1" name="rating" value="1" checked>
                             <label for="star-1" title="1"></label>
                         </div>
                     </td>

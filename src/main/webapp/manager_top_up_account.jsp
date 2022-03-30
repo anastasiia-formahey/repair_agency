@@ -55,10 +55,10 @@
     <div>
         <form action="controller" method="get" style=" margin-left: 40px;margin-top: 20px;">
             <input type="hidden" name="command" value="topUpAccount"/>
-            <input class="inputField" pattern="[0-9]{0,10}$" name="topUpAccount" type="number" placeholder="<fmt:message key="enterAmount"/>">
+            <input class="inputField" pattern="[0-9]{0,10}$" name="topUpAccount" required type="number" placeholder="<fmt:message key="enterAmount"/>">
 
 
-            <input class="inputField"  name="userLogin" type="text" placeholder="<fmt:message key="userlogin"/>">
+            <input class="inputField"  name="userLogin" type="text" required placeholder="<fmt:message key="userlogin"/>">
             <p class = errorMessage>${requestScope.errorMessage}</p>
             <input class="inputField" type="submit" style="margin-left: 10px;"value="<fmt:message key="topUpAccount"/>">
         </form>

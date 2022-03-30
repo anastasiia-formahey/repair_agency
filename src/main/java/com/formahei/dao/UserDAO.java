@@ -2,6 +2,7 @@ package com.formahei.dao;
 
 import com.formahei.entity.EntityMapper;
 import com.formahei.entity.User;
+import com.formahei.utils.Constants;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
@@ -85,7 +86,7 @@ public class UserDAO {
 
     public List<User> findUserByRole(String role){
         ArrayList<User> users = new ArrayList<>();
-        User user = null;
+        User user;
         ResultSet resultSet;
         Connection connection =null;
         PreparedStatement preparedStatement = null;
@@ -115,9 +116,6 @@ public class UserDAO {
     }
 
     public boolean updateStatus(String login, String status){
-        if(findUserByLogin(login).getStatus().equals("blocked")){
-            status = "unblocked";
-        }
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try{
@@ -171,14 +169,14 @@ public class UserDAO {
         public User mapRow(ResultSet resultSet) {
             try {
                 User user = new User();
-                user.setLogin(resultSet.getString("login"));
-                user.setPass(resultSet.getString("password"));
-                user.setFirstName(resultSet.getString("first_name"));
-                user.setLastName(resultSet.getString("last_name"));
-                user.setEmail(resultSet.getString("email"));
-                user.setRole(resultSet.getString("role"));
-                user.setAccount(resultSet.getDouble("account"));
-                user.setStatus(resultSet.getString("status"));
+                user.setLogin(resultSet.getString(Constants.LOGIN));
+                user.setPass(resultSet.getString(Constants.PASSWORD));
+                user.setFirstName(resultSet.getString(Constants.FIRST_NAME));
+                user.setLastName(resultSet.getString(Constants.LAST_NAME));
+                user.setEmail(resultSet.getString(Constants.EMAIL));
+                user.setRole(resultSet.getString(Constants.ROLE));
+                user.setAccount(resultSet.getDouble(Constants.ACCOUNT));
+                user.setStatus(resultSet.getString(Constants.STATUS));
                 return user;
             } catch (SQLException e) {
                 throw new IllegalStateException(e);

@@ -3,6 +3,7 @@ package com.formahei.web.command;
 import com.formahei.dao.RequestDAO;
 import com.formahei.dao.UserRequestDAO;
 import com.formahei.entity.RepairRequest;
+import com.formahei.entity.Role;
 import com.formahei.service.RequestService;
 import com.formahei.service.UserRequestService;
 import com.formahei.utils.Constants;
@@ -20,7 +21,7 @@ public class CreateRequestCommand implements Command {
      * @return Address to go after command executed
      */
     @Override
-    public String execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public CommandResult execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         RequestService requestService = new RequestService(RequestDAO.getInstance());
         UserRequestService userRequestService = new UserRequestService(UserRequestDAO.getInstance());
         String userLogin = req.getSession().getAttribute(Constants.LOGIN).toString();
@@ -33,12 +34,11 @@ public class CreateRequestCommand implements Command {
                 .withDateTime(String.valueOf(LocalDateTime.now()))
                 .withClient(userLogin)
                 .build();
-        req.getSession().setAttribute("request", request);
+        req.getSession().setAttribute(Constants.REQUEST, request);
 
         int idRequest = requestService.addRequest(request);
-
-            userRequestService.addUserRequest(idRequest, userLogin, "CLIENT");
+            userRequestService.addUserRequest(idRequest, userLogin, Role.CLIENT.name());
         }
-        return Path.PAGE_CLIENT_CREATE_REQUEST;
+        return new CommandResult(Path.PAGE_CLIENT_CREATE_REQUEST, true);
     }
 }

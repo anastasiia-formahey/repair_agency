@@ -1,5 +1,6 @@
 package com.formahei.web.command;
 
+import com.formahei.service.PasswordEncoder;
 import com.formahei.service.UserService;
 import com.formahei.utils.Constants;
 import com.formahei.utils.Path;
@@ -14,14 +15,14 @@ import javax.servlet.http.HttpServletResponse;
 public class RegisterCommand implements Command{
     private static final Logger log = Logger.getLogger(RegisterCommand.class);
 
-    public String execute(HttpServletRequest req, HttpServletResponse resp){
+    public CommandResult execute(HttpServletRequest req, HttpServletResponse resp){
         UserService userService = new UserService(UserDAO.getInstance());
         User user = new User();
-        String login = req.getParameter("login");
-        String password = req.getParameter("password");
+        String login = req.getParameter(Constants.LOGIN);
+        String password = PasswordEncoder.encode(req.getParameter(Constants.PASSWORD));
         String firstName = req.getParameter("firstname");
         String lastName = req.getParameter("lastname");
-        String email = req.getParameter("email");
+        String email = req.getParameter(Constants.EMAIL);
         String errorMessage;
         String path;
         if(login.length() < 1 || password.length() < 1 ||firstName.length() < 1
@@ -47,6 +48,6 @@ public class RegisterCommand implements Command{
                 path = Path.PAGE_REGISTER;
             }
         }
-        return path;
+        return new CommandResult(path, true);
     }
 }

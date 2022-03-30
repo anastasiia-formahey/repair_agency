@@ -97,7 +97,7 @@
                             <c:if test="${req.getState() eq 'Finished'}">
                                 <c:if test="${req.getFeedback() eq '0'}">
                                     <div class="feedback">
-                                <form action="controller" method="post">
+                                <form action="controller" method="post" style="width: auto;">
                                     <input type="hidden" name="command" value="goToFeedback"/>
                                     <input  type="hidden" name="idRequest" value="${req.getId()}"/>
                                     <input  type="hidden" name="master" value="${req.getMaster()}"/>

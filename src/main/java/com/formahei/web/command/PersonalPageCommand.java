@@ -1,13 +1,18 @@
 package com.formahei.web.command;
 
+import com.formahei.dao.FeedbackDAO;
 import com.formahei.dao.UserDAO;
+import com.formahei.entity.Feedback;
 import com.formahei.entity.User;
+import com.formahei.service.FeedbackService;
 import com.formahei.service.UserService;
+import com.formahei.utils.Constants;
 import com.formahei.utils.Path;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Map;
 
 public class PersonalPageCommand implements Command {
     /**
@@ -18,12 +23,13 @@ public class PersonalPageCommand implements Command {
      * @return Address to go after command executed
      */
     @Override
-    public String execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public CommandResult execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         UserService userService = new UserService(UserDAO.getInstance());
-        User client = userService.getUserByLogin(req.getSession().getAttribute("login")
+        User client = userService.getUserByLogin(req.getSession().getAttribute(Constants.LOGIN)
                 .toString());
-        req.getSession().removeAttribute("account");
-        req.getSession().setAttribute("account", client.getAccount() + " UAH");
+        FeedbackService feedbackService = new FeedbackService(FeedbackDAO.getInstance());
+        req.getSession().removeAttribute(Constants.ACCOUNT);
+        req.getSession().setAttribute(Constants.ACCOUNT, client.getAccount() + " UAH");
         String path;
         switch (client.getRole()){
             case "CLIENT": {
@@ -35,15 +41,19 @@ public class PersonalPageCommand implements Command {
                 break;
             }
             case "MASTER":{
+
+                req.getSession().setAttribute(Constants.RATING,
+                        feedbackService.getRatingByMaster().get(client.getLogin()));
                 path =Path.PAGE_MASTER_HOME;
                 break;
             }
             case "ADMIN":{
+
                 path = Path.PAGE_ADMIN_HOME;
                 break;
             }
             default: path = Path.PAGE_LOGIN;
         }
-        return path;
+        return new CommandResult(path, true);
     }
 }

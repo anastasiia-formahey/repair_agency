@@ -17,7 +17,7 @@ public class ChangeStatusOfUserCommand implements Command {
      * @return Address to go after command executed
      */
     @Override
-    public String execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public CommandResult execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         UserService userService = new UserService(UserDAO.getInstance());
         userService.updateStatus(req.getParameter("loginOfUser"));
         return new ViewUsersCommand().execute(req, resp);

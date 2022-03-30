@@ -60,7 +60,6 @@ public class CommandAccessFilter implements Filter {
         String commandName = request.getParameter("command");
         String locale = request.getParameter("locale");
         System.out.println(commandName);
-        System.out.println(commandName);
         if (commandName == null || commandName.isEmpty())
             return false;
         if (outOfControl.contains(commandName))
@@ -71,7 +70,7 @@ public class CommandAccessFilter implements Filter {
         if (session == null)
             return false;
         String userRole = session.getAttribute("role").toString();
-        if (userRole == null)
+        if (userRole == null || userRole.equals(""))
             return false;
 
         return accessMap.get(userRole).contains(commandName)

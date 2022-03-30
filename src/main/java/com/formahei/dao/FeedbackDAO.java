@@ -1,12 +1,15 @@
 package com.formahei.dao;
 
 import com.formahei.entity.Feedback;
-import com.formahei.entity.User;
+import com.formahei.utils.Constants;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Data access object for Feedback entity.
+ * @author Anastasiia Formahei
+ */
 public class FeedbackDAO {
     private static final String SQL_INSERT_INTO_FEEDBACK =
             "INSERT INTO feedback VALUES(DEFAULT,?,?,?,?,?)";
@@ -36,7 +39,6 @@ public class FeedbackDAO {
             preparedStatement.setInt(3, feedback.getIdRequest());
             preparedStatement.setString(4, feedback.getMasterLogin());
             preparedStatement.setInt(5, feedback.getStars());
-            System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
 
             resultSet = preparedStatement.getGeneratedKeys();
@@ -67,17 +69,16 @@ public class FeedbackDAO {
         try {
             connection = DBManager.getInstance().getConnection();
             preparedStatement = connection.prepareStatement(SQL_SELECT_ALL_FROM_FEEDBACK);
-
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Feedback feedback = new Feedback(
-                        resultSet.getString("description"),
-                        resultSet.getString("dateTime"),
-                        resultSet.getInt("id_request"),
-                        resultSet.getString("master_login"),
-                        resultSet.getInt("stars")
+                        resultSet.getString(Constants.DESCRIPTION),
+                        resultSet.getString(Constants.DATETIME),
+                        resultSet.getInt(Constants.FEEDBACK_ID),
+                        resultSet.getString(Constants.FEEDBACK_MASTER_LOGIN),
+                        resultSet.getInt(Constants.FEEDBACK_STARS)
                 );
-                feedback.setId(resultSet.getInt("id"));
+                feedback.setId(resultSet.getInt(Constants.ID));
                 feedbacks.add(feedback);
             }
         resultSet.close();

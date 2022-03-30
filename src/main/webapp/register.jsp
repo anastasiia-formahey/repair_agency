@@ -20,8 +20,8 @@
           </ul>
         </div></td>
       <td>
-        <a href="index.jsp" class="button" style="margin-top: -20px;"> <fmt:message key="header.login"/> </a>
-        <a href="register.jsp" class="button" style="margin-top: -20px;"><fmt:message key="header.register"/></a>
+        <a href="index.jsp" class="button" style="margin-top: -20px; border: 1px white solid;"> <fmt:message key="header.login"/> </a>
+        <a href="register.jsp" class="button" style="margin-top: -20px; border: 1px white solid;"><fmt:message key="header.register"/></a>
       </td>
       <td>
         <div class="locale">
@@ -42,21 +42,21 @@
   <form action="controller" method="post">
     <input type="hidden" name="command" value="register"/>
     <div class="inputCont">
-      <div class="inputCont">
+      <div class="inputCont" style="margin-left: -40px;">
         <p><fmt:message key="form"/></p>
         <p class = errorMessage>${requestScope.errorMessage}</p>
       </div>
       <div class="inputCont">
         <input name="login" pattern="[A-Za-zА-Яа-я0-9]{4,10}$"
                onchange ="this.setCustomValidity(this.validity.patternMismatch ? 'Must content only letters and numbers, length must be 4-10 symbols' :'')"
-               class="inputField" type="text" placeholder="<fmt:message key="login"/>">
+               class="inputField" type="text" placeholder="<fmt:message key="login"/>" required/>
       </div>
       <br>
       <div class="inputCont" id="pass">
         <label>
           <input name="password" pattern="^\S{4,10}$"
                  onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Length must be 4-10 symbols': '')"
-                 class="inputField" type="password" placeholder="<fmt:message key="password"/>">
+                 class="inputField" type="password" placeholder="<fmt:message key="password"/>" required/>
         </label>
       </div>
       <br>
@@ -64,7 +64,7 @@
         <label>
           <input name="firstname" pattern="{4,40}$"
                  onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must content only letters': '')"
-                 class="inputField" type="text" placeholder="<fmt:message key="firstName"/>">
+                 class="inputField" type="text" placeholder="<fmt:message key="firstName"/>" required/>
         </label>
       </div>
       <br>
@@ -72,14 +72,14 @@
         <label>
           <input name="lastname" pattern="{4,40}$"
                  onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must content only letters': '')"
-                 class="inputField" type="text" placeholder="<fmt:message key="lastName"/>">
+                 class="inputField" type="text" placeholder="<fmt:message key="lastName"/>" required/>
         </label>
       </div>
       <br>
       <div class="inputCont">
         <label>
           <input name="email" pattern="^[A-Za-z0-9+_.-]+@(.+)$"
-                 class="inputField" type="email" placeholder="<fmt:message key="email"/>">
+                 class="inputField" type="email" placeholder="<fmt:message key="email"/>" required/>
         </label>
       </div>
     <br>

@@ -11,15 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class AddUserCommand implements Command {
-    public String execute(HttpServletRequest req, HttpServletResponse resp){
+    public CommandResult execute(HttpServletRequest req, HttpServletResponse resp){
         UserService userService = new UserService(UserDAO.getInstance());
         User user = new User();
-        String login = req.getParameter("login");
-        String password = req.getParameter("password");
-        String firstName = req.getParameter("firstname");
-        String lastName = req.getParameter("lastname");
-        String email = req.getParameter("email");
-        String role = req.getParameter("role");
+        String login = req.getParameter(Constants.LOGIN);
+        String password = req.getParameter(Constants.PASSWORD);
+        String firstName = req.getParameter(Constants.FIRST_NAME);
+        String lastName = req.getParameter(Constants.LAST_NAME);
+        String email = req.getParameter(Constants.EMAIL);
+        String role = req.getParameter(Constants.ROLE);
         String errorMessage;
         String path;
         if(login.length() < 1 || password.length() < 1 ||firstName.length() < 1
@@ -37,7 +37,7 @@ public class AddUserCommand implements Command {
             user.setStatus("unblocked");
             user.setRole(role);
             String valid = new UserValidator().validate(user);
-            if(valid != null){
+            if(valid == null){
                 if(userService.getUserByLogin(login) == null){
                     userService.addUser(user);
                     path = Path.PAGE_ADMIN_HOME;
@@ -47,12 +47,11 @@ public class AddUserCommand implements Command {
                     path = Path.PAGE_ADD_USER_BY_ADMIN;
                 }
             }else {
-                errorMessage = "User has already exists";
+                errorMessage = "Invalid data";
                 req.setAttribute(Constants.ERROR_MESSAGE, errorMessage);
                 path = Path.PAGE_ADD_USER_BY_ADMIN;
             }
-
         }
-        return path;
+        return new CommandResult(path, true);
     }
 }
