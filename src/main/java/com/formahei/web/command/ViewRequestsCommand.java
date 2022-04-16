@@ -11,6 +11,7 @@ import com.formahei.service.Pagination;
 import com.formahei.service.RequestService;
 import com.formahei.service.UserService;
 import com.formahei.utils.Constants;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +22,7 @@ import java.util.Objects;
 
 public class ViewRequestsCommand implements Command {
 
+    private static final Logger log = Logger.getLogger(ViewRequestsCommand.class);
     /**
      * Execution method for command
      *
@@ -30,6 +32,9 @@ public class ViewRequestsCommand implements Command {
      */
     @Override
     public CommandResult execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+
+        log.debug("ViewRequestsCommand starts");
+
         FeedbackService feedbackService = new FeedbackService(FeedbackDAO.getInstance());
         RequestService requestService = new RequestService(RequestDAO.getInstance());
         UserService userService = new UserService(UserDAO.getInstance());
@@ -45,6 +50,8 @@ public class ViewRequestsCommand implements Command {
 
         Pagination.setPagination(req, currentPage, rows, orderBy);
         Pagination.setPagination(req, currentPage, rows, orderBy);
+
+        log.debug("ViewRequestsCommand finished");
 
         return new CommandResult(requestService.viewRequestsByRole(req, userService,
                 feedbackService.findAllFeedbacks(), new ArrayList<>(),

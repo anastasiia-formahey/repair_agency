@@ -58,6 +58,7 @@
 </aside>
 <main>
     <p class = "message">${sessionScope.message}</p>
+    <p class = "errorMessage">${sessionScope.errorMessage}</p>
 </main>
 </body>
 </html>

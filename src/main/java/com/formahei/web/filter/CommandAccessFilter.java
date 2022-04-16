@@ -58,15 +58,12 @@ public class CommandAccessFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
 
         String commandName = request.getParameter("command");
-        String locale = request.getParameter("locale");
-        System.out.println(commandName);
         if (commandName == null || commandName.isEmpty())
             return false;
         if (outOfControl.contains(commandName))
             return true;
 
         HttpSession session = httpRequest.getSession();
-        System.out.println(session);
         if (session == null)
             return false;
         String userRole = session.getAttribute("role").toString();

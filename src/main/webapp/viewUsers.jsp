@@ -57,13 +57,13 @@
         <table>
             <thead>
             <tr>
-                <td><fmt:message key="login"/></td>
-                <td><fmt:message key="firstName"/></td>
-                <td><fmt:message key="lastName"/></td>
-                <td><fmt:message key="email"/></td>
-                <td><fmt:message key="account"/></td>
-                <td><fmt:message key="status"/></td>
-                <td></td>
+                <th><fmt:message key="login"/></th>
+                <th><fmt:message key="firstName"/></th>
+                <th><fmt:message key="lastName"/></th>
+                <th><fmt:message key="email"/></th>
+                <th><fmt:message key="account"/></th>
+                <th><fmt:message key="status"/></th>
+                <th></th>
             </tr>
             </thead>
             <tbody>

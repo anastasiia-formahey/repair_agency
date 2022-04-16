@@ -5,6 +5,7 @@ import com.formahei.entity.Role;
 import com.formahei.entity.User;
 import com.formahei.service.UserService;
 import com.formahei.utils.Constants;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ViewUsersCommand implements Command {
+    private static final Logger log = Logger.getLogger(ViewUsersCommand.class);
+
     /**
      * Execution method for command
      *
@@ -22,6 +25,7 @@ public class ViewUsersCommand implements Command {
      */
     @Override
     public CommandResult execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        log.debug("ViewUsersCommand starts");
         UserService userService = new UserService(UserDAO.getInstance());
         List<User> listOfUsers = new ArrayList<>();
         String path = "viewUsers.jsp";
@@ -33,6 +37,7 @@ public class ViewUsersCommand implements Command {
             listOfUsers = userService.findUserByRole(Role.CLIENT.name());
         }
         req.getSession().setAttribute("listOfUsers",listOfUsers);
+        log.debug("ViewUsersCommand finished");
         return new CommandResult( path, true);
     }
 }

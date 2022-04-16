@@ -6,12 +6,17 @@ import com.formahei.service.UserService;
 import com.formahei.utils.Constants;
 import com.formahei.utils.Path;
 import com.formahei.service.UserValidator;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class AddUserCommand implements Command {
+    private static final Logger log = Logger.getLogger(AddUserCommand.class);
+
     public CommandResult execute(HttpServletRequest req, HttpServletResponse resp){
+        log.debug("AddUserCommand starts");
+
         UserService userService = new UserService(UserDAO.getInstance());
         User user = new User();
         String login = req.getParameter(Constants.LOGIN);
@@ -52,6 +57,8 @@ public class AddUserCommand implements Command {
                 path = Path.PAGE_ADD_USER_BY_ADMIN;
             }
         }
+
+        log.debug("AddUserCommand finished");
         return new CommandResult(path, true);
     }
 }

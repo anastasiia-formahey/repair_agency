@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="custom" tagdir="/WEB-INF/tags" %>
+
 <fmt:setLocale value="${sessionScope.locale}"/>
 <fmt:setBundle basename="resources"/>
 <!DOCTYPE html>
@@ -45,7 +47,7 @@
         <input type="hidden" name="command" value="login"/>
         <div class="inputCont">
             <p><fmt:message key="header.login"/></p>
-            <p class = errorMessage style="margin-left: 0px; padding-right: 100px;">${requestScope.errorMessage}</p>
+            <custom:tags errorMessages="${requestScope.errorMessage}"/>
         </div>
 
         <div class="inputCont">

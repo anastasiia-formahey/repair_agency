@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 public class Pagination {
     public static final int RECORDS_PER_PAGE = 5;
+
     public static void setPagination(HttpServletRequest request, int currentPage, int rows, String orderBy) {
         int nOfPages = rows / RECORDS_PER_PAGE;
 

@@ -35,6 +35,7 @@ public class DBManager {
      * */
 
     public Connection getConnection(){
+        log.debug("Method starts");
         Connection connection = null;
         try{
             Context envContext = new InitialContext();
@@ -46,6 +47,7 @@ public class DBManager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        log.debug("Method finished");
         return connection;
     }
 
@@ -55,12 +57,14 @@ public class DBManager {
      *
      * */
     public void commitAndClose(Connection connection){
+        log.debug("Method starts");
         try{
             connection.commit();
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        log.debug("Method finished");
     }
     /**
      * This method rollbacks and close the given connection
@@ -68,12 +72,14 @@ public class DBManager {
      *
      * */
     public void rollbackAndClose(Connection connection){
+        log.debug("Method starts");
         try{
             connection.rollback();
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        log.debug("Method finished");
     }
 
 

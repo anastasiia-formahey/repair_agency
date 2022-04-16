@@ -99,4 +99,9 @@ public class RequestService {
                 return "viewRequests.jsp";
         }
     }
+
+    public boolean deleteRequest(int id, String status, String login, double amount){
+        return requestDAO.deleteRequestById( id, status, login, amount);
+    }
+
 }

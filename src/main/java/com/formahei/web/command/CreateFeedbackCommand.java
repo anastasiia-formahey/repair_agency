@@ -6,6 +6,7 @@ import com.formahei.entity.Feedback;
 import com.formahei.entity.RepairRequest;
 import com.formahei.service.FeedbackService;
 import com.formahei.utils.Constants;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 
 public class CreateFeedbackCommand implements Command {
 
+    private static final Logger log = Logger.getLogger(CreateFeedbackCommand.class);
     /**
      * Execution method for command
      *
@@ -23,6 +25,8 @@ public class CreateFeedbackCommand implements Command {
      */
     @Override
     public CommandResult execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        log.debug("CreateFeedbackCommand starts");
+
         FeedbackService feedbackService = new FeedbackService(FeedbackDAO.getInstance());
         String stars = req.getParameter(Constants.RATING);
         int idRequest = Integer.parseInt(req.getParameter(Constants.ID_REQUEST));
@@ -37,6 +41,8 @@ public class CreateFeedbackCommand implements Command {
            feedbackService.createFeedback(feedback);
         req.getSession().removeAttribute("message");
         req.getSession().setAttribute("message", "Feedback added");
+
+        log.debug("CreateFeedbackCommand finished");
            return new CommandResult("user_home_page.jsp", true);
     }
 }

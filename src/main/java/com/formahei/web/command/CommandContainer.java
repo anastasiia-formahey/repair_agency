@@ -32,6 +32,7 @@ public class CommandContainer{
         commandMap.put("requestProcessingByMaster", new RequestProcessingByMasterCommand());
         commandMap.put("changeStatusOfUser", new ChangeStatusOfUserCommand());
         commandMap.put("locale", new LocaleCommand());
+        commandMap.put("deleteRequest", new DeleteCommand());
     }
 
     /**

@@ -174,7 +174,7 @@
             <ul class="pagination">
                 <c:if test="${currentPage != 1}">
                     <li class="page-item"><a class="page-link"
-                                             href="controller?command=viewRequests&currentPage=${currentPage-1}&recordsPerPage=${recordsPerPage}&orderBy=${orderBy}">Previous</a>
+                                             href="controller?command=viewRequests&currentPage=${currentPage-1}&recordsPerPage=${recordsPerPage}&orderBy=${orderBy}"><</a>
                     </li>
                 </c:if>
 
@@ -195,7 +195,7 @@
 
                 <c:if test="${currentPage lt noOfPages}">
                     <li class="page-item"><a class="page-link"
-                                             href="controller?command=viewRequests&currentPage=${currentPage+1}&recordsPerPage=${recordsPerPage}&orderBy=${orderBy}">Next</a>
+                                             href="controller?command=viewRequests&currentPage=${currentPage+1}&recordsPerPage=${recordsPerPage}&orderBy=${orderBy}">></a>
                     </li>
                 </c:if>
             </ul>

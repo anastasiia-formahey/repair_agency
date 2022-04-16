@@ -54,14 +54,14 @@
         <table>
             <thead>
             <tr>
-                <td>№</td>
-                <td><fmt:message key="description"/></td>
-                <td><fmt:message key="dataTime"/></td>
-                <td><fmt:message key="client"/></td>
-                <td><fmt:message key="price"/></td>
-                <td><fmt:message key="status"/></td>
-                <td><fmt:message key="state"/></td>
-                <td> </td>
+                <th>№</th>
+                <th><fmt:message key="description"/></th>
+                <th><fmt:message key="dataTime"/></th>
+                <th><fmt:message key="client"/></th>
+                <th><fmt:message key="price"/></th>
+                <th><fmt:message key="status"/></th>
+                <th><fmt:message key="state"/></th>
+                <th> </th>
             </tr>
             </thead>
             <tbody class="table-hover">
@@ -104,7 +104,7 @@
             <ul class="pagination">
                 <c:if test="${currentPage != 1}">
                     <li class="page-item"><a class="page-link"
-                                             href="controller?command=viewRequests&currentPage=${currentPage-1}&recordsPerPage=${recordsPerPage}">Previous</a>
+                                             href="controller?command=viewRequests&currentPage=${currentPage-1}&recordsPerPage=${recordsPerPage}"><</a>
                     </li>
                 </c:if>
 
@@ -125,7 +125,7 @@
 
                 <c:if test="${currentPage lt noOfPages}">
                     <li class="page-item"><a class="page-link"
-                                             href="controller?command=viewRequests&currentPage=${currentPage+1}&recordsPerPage=${recordsPerPage}">Next</a>
+                                             href="controller?command=viewRequests&currentPage=${currentPage+1}&recordsPerPage=${recordsPerPage}">></a>
                     </li>
                 </c:if>
             </ul>

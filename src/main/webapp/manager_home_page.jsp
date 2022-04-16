@@ -22,7 +22,7 @@
     </div>
         </td>
     <td style="width: 320px;"><p id = "user">${sessionScope.user}</p>
-    <p id = "account">${sessionScope.account}</p>
+    <p id = "account">${sessionScope.account} </p>
     </td>
    <td><a href="controller?command=logout">
         <input type="submit" class="button" id="logout" value="<fmt:message key="logout"/>"/>

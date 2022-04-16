@@ -56,10 +56,10 @@
         <table>
             <thead>
             <tr>
-                <td><fmt:message key="request"/> №</td>
-                <td><fmt:message key="rating"/></td>
-                <td><fmt:message key="dataTime"/></td>
-                <td><fmt:message key="description"/></td>
+                <th><fmt:message key="request"/> №</th>
+                <th><fmt:message key="rating"/></th>
+                <th><fmt:message key="dataTime"/></th>
+                <th><fmt:message key="description"/></th>
             </tr>
             </thead>
             <tbody>

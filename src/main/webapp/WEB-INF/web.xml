@@ -65,11 +65,11 @@
         </init-param>
         <init-param>
             <param-name>client</param-name>
-            <param-value>goToFeedback createFeedback payForRequest topUpAccount register personalPage viewRequests createRequest</param-value>
+            <param-value>receipts download deleteRequest goToFeedback createFeedback payForRequest topUpAccount register personalPage viewRequests createRequest</param-value>
         </init-param>
         <init-param>
             <param-name>out-of-control</param-name>
-            <param-value>locale login logout register</param-value>
+            <param-value>locale login logout register download</param-value>
         </init-param>
     </filter>
 

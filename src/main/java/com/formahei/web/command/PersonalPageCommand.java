@@ -8,6 +8,7 @@ import com.formahei.service.FeedbackService;
 import com.formahei.service.UserService;
 import com.formahei.utils.Constants;
 import com.formahei.utils.Path;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +16,8 @@ import java.io.IOException;
 import java.util.Map;
 
 public class PersonalPageCommand implements Command {
+
+    private static final Logger log = Logger.getLogger(PersonalPageCommand.class);
     /**
      * Execution method for command
      *
@@ -24,6 +27,7 @@ public class PersonalPageCommand implements Command {
      */
     @Override
     public CommandResult execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        log.debug("PersonalPageCommand starts");
         UserService userService = new UserService(UserDAO.getInstance());
         User client = userService.getUserByLogin(req.getSession().getAttribute(Constants.LOGIN)
                 .toString());
@@ -41,19 +45,18 @@ public class PersonalPageCommand implements Command {
                 break;
             }
             case "MASTER":{
-
                 req.getSession().setAttribute(Constants.RATING,
                         feedbackService.getRatingByMaster().get(client.getLogin()));
                 path =Path.PAGE_MASTER_HOME;
                 break;
             }
             case "ADMIN":{
-
                 path = Path.PAGE_ADMIN_HOME;
                 break;
             }
             default: path = Path.PAGE_LOGIN;
         }
+        log.debug("PersonalPageCommand finished");
         return new CommandResult(path, true);
     }
 }

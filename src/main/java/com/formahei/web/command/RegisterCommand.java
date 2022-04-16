@@ -16,6 +16,7 @@ public class RegisterCommand implements Command{
     private static final Logger log = Logger.getLogger(RegisterCommand.class);
 
     public CommandResult execute(HttpServletRequest req, HttpServletResponse resp){
+        log.debug("RegisterCommand starts");
         UserService userService = new UserService(UserDAO.getInstance());
         User user = new User();
         String login = req.getParameter(Constants.LOGIN);
@@ -30,6 +31,7 @@ public class RegisterCommand implements Command{
             errorMessage = "All fields must not be empty";
             req.setAttribute(Constants.ERROR_MESSAGE, errorMessage);
             path = Path.PAGE_REGISTER;
+            log.trace(errorMessage);
         }else {
         user.setLogin(login);
         user.setPass(password);
@@ -42,12 +44,15 @@ public class RegisterCommand implements Command{
             if(userService.getUserByLogin(login) == null){
                 userService.addUser(user);
                 path = Path.PAGE_LOGIN;
+                log.trace("User was registered");
             }else {
                 errorMessage = "User has already exists";
                 req.setAttribute(Constants.ERROR_MESSAGE, errorMessage);
                 path = Path.PAGE_REGISTER;
+                log.trace(errorMessage);
             }
         }
+        log.debug("RegisterCommand finished");
         return new CommandResult(path, true);
     }
 }

@@ -227,8 +227,7 @@ main div table{
     border-collapse: collapse;
 }
 main div table td {
-    border-top: 1.5px solid #212121;
-    border-bottom: 1.5px solid #212121;
+    border-bottom: 1px solid #212121;
     color: black;
     background:white;
     font-style: normal;
@@ -262,8 +261,7 @@ table tbody tr td input[type="submit"]:hover{
 main div table thead th{
     background: #cbcbcb4f;
     font-weight: bold;
-    border-top: 1.5px solid #212121;
-    border-bottom: 1.5px solid #212121;
+    border-bottom: 1px solid #212121;
     color: #212121;
     font-style: normal;
     height: 40px;
@@ -283,7 +281,6 @@ main div table select{
 main div input[type="number"] {
     width: 300px;
     height: 40px;
-    /*! background: #e3e4e5; */
     border: 1px solid #949494;
     border-radius: 3px;
     margin-top: 15px;

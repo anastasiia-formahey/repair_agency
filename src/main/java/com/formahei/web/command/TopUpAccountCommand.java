@@ -48,7 +48,7 @@ public class TopUpAccountCommand implements Command {
             }
             if(userService.getUserByLogin(loginOfClient) == null){
                 req.setAttribute(Constants.ERROR_MESSAGE, "User not registered");
-                return new CommandResult(Path.PAGE_MANAGER_TOP_UP_ACCOUNT, true);
+                return new CommandResult(Path.PAGE_MANAGER_TOP_UP_ACCOUNT, false);
             }
             loginOfManager = req.getSession().getAttribute(Constants.LOGIN).toString();
         }else {

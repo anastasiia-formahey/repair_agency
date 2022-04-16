@@ -65,14 +65,14 @@
         <table>
             <thead>
             <tr>
-                <td>№</td>
-                <td><fmt:message key="description"/></td>
-                <td><fmt:message key="dataTime"/></td>
-                <td><fmt:message key="price"/></td>
-                <td><fmt:message key="status"/></td>
-                <td><fmt:message key="state"/></td>
-                <td><fmt:message key="master"/></td>
-                <td></td>
+                <th>№</th>
+                <th><fmt:message key="description"/></th>
+                <th><fmt:message key="dataTime"/></th>
+                <th><fmt:message key="price"/></th>
+                <th><fmt:message key="status"/></th>
+                <th><fmt:message key="state"/></th>
+                <th><fmt:message key="master"/></th>
+                <th></th>
             </tr>
             </thead>
                 <tbody>
@@ -109,6 +109,19 @@
                                     ★ ${req.getFeedback()}
                             </c:if>
                             </c:if>
+                            <c:if test="${req.getState() ne 'Finished'}">
+                            <c:if test="${req.getMaster() eq ''}">
+                                <form action="controller" method="post" style="width: auto;">
+                                    <input type="hidden" name="command" value="deleteRequest"/>
+                                    <input  type="hidden" name="idRequest" value="${req.getId()}"/>
+                                    <input  type="hidden" name="price" value="${req.getPrice()}"/>
+                                    <input  type="hidden" name="status" value="${req.getStatus()}"/>
+
+                                    <input name="deleteRequest" type="submit" value="Delete">
+
+                                </form>
+                            </c:if>
+                            </c:if>
 
                         </td>
                     </tr>
@@ -119,7 +132,7 @@
             <ul class="pagination">
                 <c:if test="${currentPage != 1}">
                     <li class="page-item"><a class="page-link"
-                                             href="controller?command=viewRequests&currentPage=${currentPage-1}&recordsPerPage=${recordsPerPage}">Previous</a>
+                                             href="controller?command=viewRequests&currentPage=${currentPage-1}&recordsPerPage=${recordsPerPage}"><</a>
                     </li>
                 </c:if>
 
@@ -140,7 +153,7 @@
 
                 <c:if test="${currentPage lt noOfPages}">
                     <li class="page-item"><a class="page-link"
-                                             href="controller?command=viewRequests&currentPage=${currentPage+1}&recordsPerPage=${recordsPerPage}">Next</a>
+                                             href="controller?command=viewRequests&currentPage=${currentPage+1}&recordsPerPage=${recordsPerPage}">></a>
                     </li>
                 </c:if>
             </ul>
